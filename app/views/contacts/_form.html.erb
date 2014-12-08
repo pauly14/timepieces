@@ -1,0 +1,68 @@
+<%= form_for(@contact) do |f| %>
+     <% if @contact.errors.any? %>
+         <div id="error_explanation">
+   <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+   <ul>
+   <% @contact.errors.full_messages.each do |msg| %>
+       <li><%= msg %></li>
+       <% end %>
+   </ul>
+   </div>
+         <% end %>
+
+     <div class="main-container">
+   <div class="main wrapper clearfix">
+   <article>
+   <header>
+   <h1 id="mainHeader">Contact...</h1>
+   </header>
+
+   <section>
+   <form id="contactForm">
+   <div id="messageContainer">
+   <div id="message"><span></span></div>
+   </div>
+   <fieldset>
+   <legend></legend>
+ <div id="ContactForm">
+   <div class="percent50">
+   <label>*Name:</label>
+   <span id="formname_msg" class="formErrorMessage"></span>
+   <%= f.text_field :name, :id => 'formname' %>
+  </div>
+  <div class="percent50">
+   <label>*Email:</label>
+   <span id="formemail_msg" class="formErrorMessage"></span>
+   <%= f.text_field :email, :id => 'formemail' %>
+   </div>
+   <div class="percent50">
+  <label>Mobile:</label>
+  <span id="formmobile_msg" class="formErrorMessage"></span>
+   <%= f.text_field :mobile, :id => 'formmobile' %>
+   </div>
+   <div>
+     <label>*Message:</label>
+      <span id="formmessage_msg" class="formErrorMessage"></span>
+      <%= f.text_area :message, :id => 'formMessage' %>
+      </div>
+    <button id="formSubmit">Submit</button>
+   </div>
+      </fieldset>
+      </form>
+      </section>
+
+      </article>
+      <!--<aside>
+ <h3>Welcome...</h3>
+ <p>
+
+ </p>
+ </aside> -->
+
+      <img class="gradPict" alt="Contact Us Picture 1" src="/assets/AboutImages/contact.jpg">
+      <img class="gradPict" alt="Contact Us Picture 2" src="/assets/AboutImages/contact3.jpg">
+      <img class="gradPict" alt="Contact Us Picture 3" src="/assets/AboutImages/contact2.jpg">
+
+      </div> <!-- #main -->
+        </div> <!-- #main-container -->
+    <% end %>

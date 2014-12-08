@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <title>Lightbox 2</title>
+
+  <meta name="description" lang="en" content="Lightbox 2 is a simple, unobtrusive script used to overlay images on the current page. It's a snap to setup and works on all modern browsers." />
+
+
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="shortcut icon" type="image/ico" href="images/favicon.gif" />
+  <link rel="stylesheet" href="assets/screen.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="assets/lightbox.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="assets/screen.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="assets/lightbox.css" type="text/css" media="screen" />
+
+
+  <link href='http://fonts.googleapis.com/css?family=Fredoka+One|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= javascript_include_tag 'jquery' %>
+</head>
+<body>
+
+
+
+
+<div class="section" id="example">
+
+
+  <h2>Mens Watches</h2>
+
+  <h3>Watches For Life</h3>
+  <div class="imageRow">
+    <div class="single">
+      <a href="assets/eberhard-image-2.jpg" rel="lightbox" title="Best seller Eberhard."><img src="assets/eberhard-extra-fort-eb1363P_110x129.jpg" alt="" /></a>
+      <a href="assets/breitling-chronomat-br15070_large.jpg" rel="lightbox"title="Best seller Breitling ."><img src="assets/breitling-chronomat-br15070_110x129.jpg" alt="" /></a>
+      <a href="assets/rolex-datejust-ro15198_w329.jpg" rel="lightbox"title="Best seller Rolex ."><img src="assets/rolex-datejust-ro15198_w329 small.jpg" alt="" /></a>
+    </div>
+
+  </div>
+  <h2>Ladies Watches</h2>
+  <div class="imageRow">
+    <div class="single">
+      <a href="assets/marauice big.jpg" rel="lightbox" title="Best seller Lacrox."><img src="assets/marauice.jpg" alt="" /></a>
+      <a href="assets/folie folie big.jpg" rel="lightbox"title="Best seller Folie ."><img src="assets/folie folie.jpg" alt="" /></a>
+      <a href="assets/tissot big.jpg" rel="lightbox"title="Swiss Movement Tissot Ladies ."><img src="assets/tissot small.jpg" alt="" /></a>
+    </div>
+
+  </div>
+  <h3 style="clear: both;">Popular Brands</h3>
+
+  <div class="imageRow">
+    <div class="set">
+      <div class="single first">
+        <a href="assets/99941491_v_1319269178big.jpg" rel="lightbox[plants]" title="Click on the right side of the image to move forward."><img src="assets/99941491_v_1319269178.jpg" alt="Deisel:Deisel image 1 0f 4 thumb" /></a>
+      </div>
+      <div class="single">
+        <a href="assets/99934389_v_1319233965big.jpg" rel="lightbox[plants]" title="Alternately you can press the right arrow key." ><img src="assets/99934389_v_1319233965.jpg" alt="Armani:Armani image 2 0f 4 thumb" /></a>
+      </div>
+      <div class="single">
+        <a href="assets/99934605_v_131923396.jpg" rel="lightbox[plants]" title="The script preloads the next image in the set as you're viewing."><img src="assets/99934605_v_1319233965.jpg" alt="watches: image 3 0f 4 thumb" /></a>
+      </div>
+      <div class="single last">
+        <a href="assets/99959061_v_1370253519big.jpg" rel="lightbox[plants]" title="Click the X or anywhere outside the image to close"><img src="assets/99959061_v_1370253519.jpg" alt="watches: image 4 0f 4 thumb" /></a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<script type="text/javascript" src="lightbox.css"></script>
+<script type="text/javascript" src="screen.css"></script>
+<script type="text/javascript" src="lightbox.js"></script>
+<script type="text/javascript" src="jquery.smooth-scroll.min.js"></script>
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="jquery-ui-1.8.18.custom.min.js"></script>
+
+
+<script>
+    jQuery(document).ready(function($) {
+        $('a').smoothScroll({
+            speed: 1000,
+            easing: 'easeInOutCubic'
+        });
+
+        $('.showOlderChanges').on('click', function(e){
+            $('.changelog .old').slideDown('slow');
+            $(this).fadeOut();
+            e.preventDefault();
+        })
+    });
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-2196019-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+
+</body>
+</html>

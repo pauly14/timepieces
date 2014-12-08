@@ -1,0 +1,48 @@
+<% if notice %>
+    <p id="notice"><%= notice %></p>
+<% end %>
+
+<h1>Watches Catalogue</h1>
+
+<table id="items" class="display" data-source="<%= items_url(format: "json") %>">
+  <thead>
+
+  <tr>
+    <th><%= sortable "title" %></th>
+    <th><%= sortable "Category" %></th>
+    <th><%= sortable "Description" %></th>
+    <th><%= sortable "image_url" %></th>
+    <th><%= sortable "price" %></th>
+    <th><%= sortable "show" %></th>
+    <th><%= sortable "edit" %></th>
+    <th><%= sortable "destroy" %></th>
+    <th><%= sortable "add to cart" %></th>
+  </tr>
+
+
+  </thead>
+  <tbody>
+  <% @items.each do |item| %>
+      <tr>
+        <td><%= link_to(item.title, item) %></td>
+        <td><%= item.category %></td>
+        <td><%= truncate(strip_tags(item.description),:length => 60) %></td>
+        <td> <%= link_to (image_tag item.image_url, :style => "height:40px"), item %></td>
+        <td><%= number_to_currency(item.price) %></td>
+        <td><%= link_to 'Show', item %></td>
+        <td><%= link_to 'Edit', edit_item_path(item) %></td>
+        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Add to Cart', line_items_path(item_id: item) %> </td>
+          <br><br>
+  <% end %>
+      </tr>
+
+  </tbody>
+
+</table>
+<br />
+
+
+<%= link_to 'New Item', new_item_path %>
+
+

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Timepieces</title>
+  <meta charset="utf-8">
+  <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> -->
+  <title>MSc Web Tech</title>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "jquery.rails.js" %>
+  <%= csrf_meta_tag %>
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="image_slide.js"></script>
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="image_slide.js"></script>
+
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+<div id="main">
+  <div id="header">
+    <div id="welcome">
+      <h1>Time <span>Pieces</span></h1>
+    </div><!--end welcome-->
+    <div id="menubar">
+      <ul id="menu">
+
+        <li><a href="home">Home</a></li>
+
+        <li><a href="about">About</a></li>
+        <li><a href="messages">Contact Us</a></li>
+        <li><a href="images#index">Images</a></li>
+        <li><a href="/items">Watch Catalogue</a></li>
+
+      </ul>
+    </div><!--end menubar-->
+  </div><!--end header-->
+
+  <div id="site_content">
+
+    <div id="text_content">
+      <h1>Welcome To Our Website</h1>
+
+      <% if flash[:notice] -%>
+          <p style="color: #ff1f04"><%= flash[:notice] %></p>
+
+
+      <% end -%>
+      <%= yield %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <% if user_signed_in? %>
+          <div>Signed in as... <%= current_user.email %> (<%= link_to 'Sign out', destroy_user_session_path, :method => :delete
+          %>)</div>
+      <% else %>
+          <%= link_to 'Register', new_user_registration_path %> or <%= link_to 'Sign in', new_user_session_path %>
+      <% end %>
+
+    </div><!--close text_content-->
+
+
+
+  </div><!--end site_content-->
+</div><!--end main-->
+
+
+
+<div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
+  Copyright © Time-Pieces.com</div>
+
+
+
+  </div><!--close footer_container-->
+
+
+
+</body>
+</html>
